@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Data\Coordinate;
+use App\Data\Coordinates;
 use App\Support\Haversine;
 use PHPUnit\Framework\TestCase;
 
@@ -10,8 +10,8 @@ class HaversineTest extends TestCase
 {
     public function test_calculates_distance_between_new_york_and_los_angeles(): void
     {
-        $ny = new Coordinate(40.7128, -74.0060);
-        $la = new Coordinate(34.0522, -118.2437);
+        $ny = new Coordinates(40.7128, -74.0060);
+        $la = new Coordinates(34.0522, -118.2437);
         
         $haversine = new Haversine($ny, $la);
         
@@ -21,8 +21,8 @@ class HaversineTest extends TestCase
     
     public function test_calculates_distance_between_london_and_paris(): void
     {
-        $london = new Coordinate(51.5074, -0.1278);
-        $paris = new Coordinate(48.8566, 2.3522);
+        $london = new Coordinates(51.5074, -0.1278);
+        $paris = new Coordinates(48.8566, 2.3522);
         
         $haversine = new Haversine($london, $paris);
         
@@ -32,7 +32,7 @@ class HaversineTest extends TestCase
     
     public function test_calculates_zero_distance_for_same_location(): void
     {
-        $location = new Coordinate(37.7749, -122.4194);
+        $location = new Coordinates(37.7749, -122.4194);
         
         $haversine = new Haversine($location, $location);
         
@@ -42,8 +42,8 @@ class HaversineTest extends TestCase
     
     public function test_handles_antipodal_points(): void
     {
-        $north_pole = new Coordinate(90, 0);
-        $south_pole = new Coordinate(-90, 0);
+        $north_pole = new Coordinates(90, 0);
+        $south_pole = new Coordinates(-90, 0);
         
         $haversine = new Haversine($north_pole, $south_pole);
         
@@ -53,8 +53,8 @@ class HaversineTest extends TestCase
     
     public function test_handles_equatorial_half_circumference(): void
     {
-        $point1 = new Coordinate(0, 0);
-        $point2 = new Coordinate(0, 180);
+        $point1 = new Coordinates(0, 0);
+        $point2 = new Coordinates(0, 180);
         
         $haversine = new Haversine($point1, $point2);
         

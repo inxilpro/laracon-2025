@@ -2,15 +2,17 @@
 
 namespace App\Database;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-/**
- * @template TParent of Model
- * @template TRelated of Model
- */
 abstract class CustomRelationBuilder
 {
+	public static function relation(Model $parent, Model $related): SimplifiedManyRelation
+	{
+		return new SimplifiedManyRelation(new static($parent, $related));
+	}
+	
 	/**
 	 * @param TParent $parent
 	 * @param TRelated $related
@@ -22,7 +24,7 @@ abstract class CustomRelationBuilder
 	}
 	
 	/** @param Collection<int,TParent> $models */
-	abstract public function addConstraints(Collection $models);
+	abstract public function addConstraints(Builder $query, Collection $models);
 	
 	/**
 	 * @param Collection<int,TParent> $models
