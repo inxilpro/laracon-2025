@@ -39,31 +39,25 @@ class Coordinate implements Castable
 					return null;
 				}
 				
-				// Skip SRID (first 4 bytes)
-				$value = substr($value, 4);
+				// Parse WKB format: SRID (4) + byte order (1) + type (4) + X (8) + Y (8)
+				$wkb = substr($value, 4); // Skip SRID
+				$isLittleEndian = ord($wkb[0]) === 1;
 				
-				// Read byte order (1 byte)
-				$byte_order = (int) unpack('C', $value[0])[1];
-				$is_little_endian = 1 === $byte_order;
+				// Extract X and Y coordinates (skip byte order + geometry type = 5 bytes)
+				$x = substr($wkb, 5, 8);
+				$y = substr($wkb, 13, 8);
 				
-				// Extract coordinate data (skip byte order + geometry type = 5 bytes)
-				$data = substr($value, 5, 16);
-				
-				// PHP's unpack doesn't support endianness in format string
-				// We need to manually handle byte order
-				if ($is_little_endian) {
-					$coords = unpack('d2', $data);
-				} else {
-					// For big endian, we need to reverse the bytes for each double
-					$x_bytes = strrev(substr($data, 0, 8));
-					$y_bytes = strrev(substr($data, 8, 8));
-					$coords = unpack('d', $x_bytes) + unpack('d', $y_bytes);
-					$coords[2] = $coords[1];
-					$coords[1] = array_values(unpack('d', $x_bytes))[0];
-					$coords[2] = array_values(unpack('d', $y_bytes))[0];
+				// Reverse bytes for big-endian if needed
+				if (!$isLittleEndian) {
+					$x = strrev($x);
+					$y = strrev($y);
 				}
 				
-				return new Coordinate($coords[2], $coords[1]);
+				// Unpack doubles and create coordinate (longitude = X, latitude = Y)
+				$longitude = unpack('d', $x)[1];
+				$latitude = unpack('d', $y)[1];
+				
+				return new Coordinate($latitude, $longitude);
 			}
 			
 			public function set(Model $model, string $key, mixed $value, array $attributes): mixed
