@@ -22,6 +22,6 @@ class LaraconGeneratorTest extends TestCase
 	{
 		$organization = Organization::firstWhere('name', 'Laracon US');
 		
-		dump($organization->more_events->toArray());
+		dump($organization->more_events);
 	}
 }

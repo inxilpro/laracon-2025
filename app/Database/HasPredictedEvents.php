@@ -17,7 +17,7 @@ class HasPredictedEvents extends HasMany
 		protected Organization $organization,
 		protected int $count = 5,
 	) {
-		parent::__construct($organization->newQuery(), new Event(), 'organization_id', 'id');
+		parent::__construct((new Event())->newQuery(), $organization, 'organization_id', 'id');
 	}
 	
 	public function getResults()

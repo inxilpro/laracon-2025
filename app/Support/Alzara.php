@@ -63,10 +63,10 @@ class Alzara
 			$json = preg_replace('(^```json|```$)', '', $result->text);
 			$data = json_decode($json, associative: true, flags: JSON_THROW_ON_ERROR);
 			
-			$filename = resource_path('data/alzara.json');
-			$cache = json_decode(file_get_contents($filename));
-			$cache[] = $data;
-			file_put_contents($filename, json_encode($cache, JSON_PRETTY_PRINT));
+			// $filename = resource_path('data/alzara.json');
+			// $cache = json_decode(file_get_contents($filename));
+			// $cache[] = $data;
+			// file_put_contents($filename, json_encode($cache, JSON_PRETTY_PRINT));
 		} catch (Throwable $exception) {
 			dump($result ?? null, $exception);
 			throw $exception;
