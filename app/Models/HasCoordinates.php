@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Data\Coordinates;
 use App\Locatable;
+use App\Support\Distance;
 use App\Support\Haversine;
 
 /**
@@ -16,14 +17,9 @@ trait HasCoordinates
 		return $this->coordinates;
 	}
 	
-	public function miles(Locatable|Coordinates $other): float
+	public function distance(Locatable|Coordinates $other): Distance
 	{
-		return $this->haversine($other)->miles();
-	}
-	
-	public function km(Locatable|Coordinates $other): float
-	{
-		return $this->haversine($other)->km();
+		return $this->haversine($other)->distance();
 	}
 	
 	protected function haversine(Locatable|Coordinates $other): Haversine

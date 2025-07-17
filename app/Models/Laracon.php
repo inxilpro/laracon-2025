@@ -13,7 +13,7 @@ class Laracon extends Model implements Locatable
 	
 	public function cell_towers()
 	{
-		return new HasNear($this, new CellTower(), Distance::meters(500));
+		return new HasNear($this, new CellTower(), new Distance(500));
 	}
 	
 	protected function casts(): array

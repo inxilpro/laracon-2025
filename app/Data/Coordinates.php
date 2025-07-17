@@ -44,8 +44,8 @@ class Coordinates implements Castable, Arrayable, Expression
 		];
 	}
 	
-	public function getValue(Grammar $grammar)
+	public function getValue(Grammar $grammar): string
 	{
-		return 'st_geomfromtext('.$grammar->quoteString("point({$this->longitude} {$this->latitude})").')';
+		return 'ST_GeomFromText('.$grammar->quoteString("point({$this->longitude} {$this->latitude})").')';
 	}
 }

@@ -14,8 +14,8 @@ class HasNear extends SimplifiedManyRelation
 	public function __construct(
 		Model&Locatable $parent,
 		Model&Locatable $related,
-		protected Distance|Expression $distance = new Distance(25_000),
-		protected string $coordinates_column = 'coordinates',
+		protected Distance $distance,
+		protected Expression|string $coordinates = 'coordinates',
 	) {
 		parent::__construct($parent, $related);
 	}
@@ -23,10 +23,8 @@ class HasNear extends SimplifiedManyRelation
 	public function addEagerConstraints(array $models)
 	{
 		foreach ($models as $parent) {
-			$this->query->orWhereRaw(sprintf('%s < %s',
-				DB::sphericalDistance($this->coordinates_column, $parent->coordinates()),
-				$this->distance,
-			));
+			$st_distance_sphere = DB::sphericalDistance($this->coordinates, $parent->coordinates());
+			$this->query->orWhereRaw("{$st_distance_sphere} < {$this->distance}");
 		}
 	}
 	
@@ -36,12 +34,30 @@ class HasNear extends SimplifiedManyRelation
 			$collection = $parent->getRelation($relation);
 			
 			foreach ($results as $related) {
-				if ($related->miles($parent) <= $this->distance) {
+				if ($this->isWithinDistance($parent, $related)) {
 					$collection->push($related);
 				}
 			}
 		}
 		
 		return $models;
+	}
+	
+	protected function isWithinDistance(Model&Locatable $from, Model&Locatable $to): bool
+	{
+		$distance = $this->distance;
+		
+		if (is_string($distance)) {
+			$distance = $to->getAttribute($distance);
+		}
+		
+		return $from->miles($to) <= $distance;
+	}
+	
+	protected function distanceExpression()
+	{
+		return is_string($this->distance) 
+			? DB::getQueryGrammar()->wrapTable($this->distance)
+			: $this->distance;
 	}
 }

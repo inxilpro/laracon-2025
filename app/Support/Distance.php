@@ -8,19 +8,29 @@ use Illuminate\Support\Facades\DB;
 
 class Distance implements Expression
 {
-	public static function meters(float $value): Distance
-	{
-		return new Distance($value);
-	}
-	
-	public static function miles(float $value): Distance
-	{
-		return new Distance($value * 0.000621371192);
-	}
-	
 	public function __construct(
 		protected float $meters,
 	) {
+	}
+	
+	public function miles(): float
+	{
+		return $this->meters * 0.00062137119;
+	}
+	
+	public function gt(Distance $distance): bool
+	{
+		return $this->meters > $distance->meters;
+	}
+	
+	public function lt(Distance $distance): bool
+	{
+		return $this->meters < $distance->meters;
+	}
+	
+	public function eq(Distance $distance): bool
+	{
+		return $this->meters === $distance->meters;
 	}
 	
 	public function getValue(Grammar $grammar)

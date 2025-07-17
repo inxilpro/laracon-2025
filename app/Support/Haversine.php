@@ -6,9 +6,7 @@ use App\Data\Coordinates;
 
 class Haversine
 {
-	protected const int RADIUS_IN_MILES = 3959;
-	
-	protected const int RADIUS_IN_KM = 6371;
+	protected const int RADIUS_IN_METERS = 6_371_009;
 	
 	public function __construct(
 		protected Coordinates $from,
@@ -16,14 +14,9 @@ class Haversine
 	) {
 	}
 	
-	public function miles(): float|int
+	public function distance(): Distance
 	{
-		return $this->angularDistance() * static::RADIUS_IN_MILES;
-	}
-	
-	public function km(): float|int
-	{
-		return $this->angularDistance() * static::RADIUS_IN_KM;
+		return new Distance($this->angularDistance() * static::RADIUS_IN_METERS);
 	}
 	
 	protected function angularDistance(): float

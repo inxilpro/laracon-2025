@@ -3,12 +3,11 @@
 namespace App;
 
 use App\Data\Coordinates;
+use App\Support\Distance;
 
 interface Locatable
 {
 	public function coordinates(): Coordinates;
 	
-	public function miles(Locatable|Coordinates $other): float;
-	
-	public function km(Locatable|Coordinates $other): float;
+	public function distance(Locatable|Coordinates $other): Distance;
 }
