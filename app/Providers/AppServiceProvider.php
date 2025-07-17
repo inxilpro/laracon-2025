@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
+use Prism\Prism\Prism;
+use Prism\Prism\Testing\TextResponseFake;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,8 +20,6 @@ class AppServiceProvider extends ServiceProvider
 	{
 		Model::unguard();
 		
-		// Http::fake([
-		// 	'*.anthropic.com/*'
-		// ]);
+		// Prism::fake(array_map(fn($text) => TextResponseFake::make()->withText($text), $this->cachedResponses()));
 	}
 }

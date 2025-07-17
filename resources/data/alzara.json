@@ -1,0 +1,142 @@
+[
+    [
+        {
+            "title": "Austin, TX (2026)",
+            "location": {
+                "latitude": 30.266667,
+                "longitude": -97.733333
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Matt Stauffer",
+                "Caleb Porzio",
+                "Freek Van der Herten",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Joe Dixon",
+                "Luke Downing",
+                "Aaron Francis",
+                "Jonathan Reinink",
+                "Tim MacDonald",
+                "Daniel Coulbourne",
+                "Kapehe Sevilleja",
+                "Marcel Pociot",
+                "Colin DeCarlo",
+                "Jason McCreary",
+                "Ben Orenstein",
+                "Mateus Guimaraes"
+            ]
+        },
+        {
+            "title": "Seattle, WA (2027)",
+            "location": {
+                "latitude": 47.608013,
+                "longitude": -122.335167
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Freek Van der Herten",
+                "Joe Tannenbaum",
+                "Luke Downing",
+                "Tim MacDonald",
+                "Aaron Francis",
+                "Philo Hermans",
+                "Stephen Rees-Carter",
+                "Joel Clermont",
+                "Jack McDade",
+                "Joe Dixon",
+                "Rissa Jackson",
+                "Diana Scharf",
+                "Jake Bennett"
+            ]
+        },
+        {
+            "title": "Atlanta, GA (2028)",
+            "location": {
+                "latitude": 33.753746,
+                "longitude": -84.386330
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Matt Stauffer",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Joe Dixon",
+                "Luke Downing",
+                "Aaron Francis",
+                "Jonathan Reinink",
+                "Jason McCreary",
+                "Colin DeCarlo",
+                "Tim MacDonald",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne",
+                "Ben Orenstein",
+                "Marcel Pociot",
+                "Freek Van der Herten",
+                "Seb Armand",
+                "Jake Bennett"
+            ]
+        },
+        {
+            "title": "Phoenix, AZ (2029)",
+            "location": {
+                "latitude": 33.448457,
+                "longitude": -112.073844
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Joe Tannenbaum",
+                "Luke Downing",
+                "Freek Van der Herten",
+                "Aaron Francis",
+                "Tim MacDonald",
+                "Joe Dixon",
+                "Jack McDade",
+                "Philo Hermans",
+                "Stephen Rees-Carter",
+                "Joel Clermont",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Diana Scharf"
+            ]
+        },
+        {
+            "title": "Miami, FL (2030)",
+            "location": {
+                "latitude": 25.761681,
+                "longitude": -80.191788
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Matt Stauffer",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Joe Dixon",
+                "Luke Downing",
+                "Aaron Francis",
+                "Jason McCreary",
+                "Freek Van der Herten",
+                "Tim MacDonald",
+                "Colin DeCarlo",
+                "Jonathan Reinink",
+                "Marcel Pociot",
+                "Ben Orenstein",
+                "Kapehe Sevilleja",
+                "Jake Bennett",
+                "Seb Armand",
+                "Daniel Coulbourne"
+            ]
+        }
+    ]
+]
