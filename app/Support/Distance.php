@@ -18,14 +18,14 @@ class Distance implements Expression
 		return $this->meters * 0.00062137119;
 	}
 	
-	public function gt(Distance $distance): bool
+	public function gte(Distance $distance): bool
 	{
-		return $this->meters > $distance->meters;
+		return $this->meters >= $distance->meters;
 	}
 	
-	public function lt(Distance $distance): bool
+	public function lte(Distance $distance): bool
 	{
-		return $this->meters < $distance->meters;
+		return $this->meters <= $distance->meters;
 	}
 	
 	public function eq(Distance $distance): bool

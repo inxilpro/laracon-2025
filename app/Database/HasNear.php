@@ -2,62 +2,54 @@
 
 namespace App\Database;
 
+use App\Database\Types\HasNearTypes;
 use App\Locatable;
 use App\Support\Distance;
-use Illuminate\Contracts\Database\Query\Expression;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
-class HasNear extends SimplifiedManyRelation
+class HasNear extends SimplifiedManyRelation implements HasNearTypes
 {
 	public function __construct(
 		Model&Locatable $parent,
 		Model&Locatable $related,
-		protected Distance $distance,
-		protected Expression|string $coordinates = 'coordinates',
+		protected Distance $threshold,
 	) {
 		parent::__construct($parent, $related);
 	}
 	
-	public function addEagerConstraints(array $models)
+	public function addEagerConstraints(array $models): void
 	{
-		foreach ($models as $parent) {
-			$st_distance_sphere = DB::sphericalDistance($this->coordinates, $parent->coordinates());
-			$this->query->orWhereRaw("{$st_distance_sphere} < {$this->distance}");
-		}
+		$this->query->where(function(Builder $query) use ($models) {
+			foreach ($models as $parent) {
+				$distance_expr = <<<SQL
+					ST_Distance_Sphere(  -- calculate the spherical distance
+						`coordinates`,   -- from the table's coordinates column
+						ST_GeomFromText( -- to a point() representing our lat/lng
+							"point({$parent->coordinates()->longitude} {$parent->coordinates()->latitude})"
+						)
+					)
+				SQL;
+				$query->orWhereRaw("{$distance_expr} < {$this->threshold}");
+			}
+		});
 	}
 	
-	public function match(array $models, EloquentCollection $results, $relation)
+	public function match(array $models, EloquentCollection $results, $relation): array
 	{
 		foreach ($models as $parent) {
-			$collection = $parent->getRelation($relation);
+			$collection = $this->related->newCollection();
 			
 			foreach ($results as $related) {
-				if ($this->isWithinDistance($parent, $related)) {
+				if ($parent->distance($related)->lte($this->threshold)) {
 					$collection->push($related);
 				}
 			}
+			
+			$parent->setRelation($relation, $collection);
 		}
 		
 		return $models;
-	}
-	
-	protected function isWithinDistance(Model&Locatable $from, Model&Locatable $to): bool
-	{
-		$distance = $this->distance;
-		
-		if (is_string($distance)) {
-			$distance = $to->getAttribute($distance);
-		}
-		
-		return $from->miles($to) <= $distance;
-	}
-	
-	protected function distanceExpression()
-	{
-		return is_string($this->distance) 
-			? DB::getQueryGrammar()->wrapTable($this->distance)
-			: $this->distance;
 	}
 }
