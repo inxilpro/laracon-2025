@@ -8,13 +8,13 @@ use App\Support\Distance;
 use App\Support\Haversine;
 
 /**
- * @property Coordinates $coordinates
+ * @property Coordinates $location
  */
-trait HasCoordinates
+trait HasLocation
 {
 	public function coordinates(): Coordinates
 	{
-		return $this->coordinates;
+		return $this->location;
 	}
 	
 	public function distance(Locatable|Coordinates $other): Distance
@@ -31,8 +31,8 @@ trait HasCoordinates
 		return new Haversine($this->coordinates(), $other);
 	}
 	
-	protected function initializeHasAttributes(): void
+	protected function initializeHasLocation(): void
 	{
-		$this->casts = array_merge(['coordinates' => Coordinates::class], $this->casts);
+		$this->casts = array_merge(['location' => Coordinates::class], $this->casts);
 	}
 }

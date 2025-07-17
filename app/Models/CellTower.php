@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CellTower extends Model implements Locatable
 {
-	use HasCoordinates;
+	use HasLocation;
 }

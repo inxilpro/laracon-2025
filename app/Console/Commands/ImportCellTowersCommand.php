@@ -49,7 +49,7 @@ class ImportCellTowersCommand extends Command
 			CellTower::create([
 				'radio' => $item->radio,
 				'range' => (int) $item->range,
-				'coordinates' => new Coordinates((float) $item->latitude, (float) $item->longitude),
+				'location' => new Coordinates((float) $item->latitude, (float) $item->longitude),
 				'created_at' => Date::createFromTimestamp($item->created, 'UTC'),
 				'updated_at' => Date::createFromTimestamp($item->updated, 'UTC'),
 			]);

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Query\Grammars\MySqlGrammar;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -10,11 +12,13 @@ return new class extends Migration {
 		Schema::create('cell_towers', function(Blueprint $table) {
 			$table->id();
 			$table->string('radio');
-			$table->geometry('coordinates', subtype: 'point');
+			$table->geometry('location', subtype: 'point');
 			$table->unsignedBigInteger('range')->index();
 			$table->timestamps();
 			
-			$table->spatialIndex('coordinates');
+			if (DB::getQueryGrammar() instanceof MySqlGrammar) {
+				$table->spatialIndex('location');
+			}
 		});
 	}
 	

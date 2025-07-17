@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ec81816053e1f819dee7e4f33e1194",
+    "content-hash": "f579ac7f5504227bbeeb7c97ceaf4144",
     "packages": [
         {
             "name": "brick/math",
@@ -1180,6 +1180,71 @@
                 }
             ],
             "time": "2025-07-07T13:38:34+00:00"
+        },
+        {
+            "name": "hosmelq/name-of-person",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hosmelq/name-of-person.git",
+                "reference": "7026fce597113740cb50962fb773430d46203790"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hosmelq/name-of-person/zipball/7026fce597113740cb50962fb773430d46203790",
+                "reference": "7026fce597113740cb50962fb773430d46203790",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "thecodingmachine/safe": "^3.3"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.47",
+                "larastan/larastan": "^3.5.0",
+                "laravel/pint": "^1.22.1",
+                "orchestra/testbench": "^9.14",
+                "pestphp/pest": "^3.8.2",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan-deprecation-rules": "^2.0.3",
+                "phpstan/phpstan-strict-rules": "^2.0.4",
+                "rector/rector": "^2.1.0",
+                "rector/type-perfect": "^2.1.0",
+                "shipmonk/composer-dependency-analyser": "^1.8.3",
+                "spaze/phpstan-disallowed-calls": "^4.5.0",
+                "thecodingmachine/phpstan-safe-rule": "^1.4.1",
+                "ticketswap/phpstan-error-formatter": "^1.1.5",
+                "tomasvotruba/type-coverage": "^2.0.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HosmelQ\\NameOfPerson\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hosmel Quintana",
+                    "email": "hosmelq@gmail.com"
+                }
+            ],
+            "description": "Presenting names of people in full, familiar, abbreviated, and initialized forms",
+            "keywords": [
+                "Person",
+                "hosmelq",
+                "laravel",
+                "name",
+                "name-of-person"
+            ],
+            "support": {
+                "issues": "https://github.com/hosmelq/name-of-person/issues",
+                "source": "https://github.com/hosmelq/name-of-person/tree/v0.3.0"
+            },
+            "time": "2025-07-11T13:44:49+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -5779,6 +5844,145 @@
                 }
             ],
             "time": "2025-06-27T19:55:54+00:00"
+        },
+        {
+            "name": "thecodingmachine/safe",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/safe.git",
+                "reference": "2cdd579eeaa2e78e51c7509b50cc9fb89a956236"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/2cdd579eeaa2e78e51c7509b50cc9fb89a956236",
+                "reference": "2cdd579eeaa2e78e51c7509b50cc9fb89a956236",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpstan/phpstan": "^2",
+                "phpunit/phpunit": "^10",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/special_cases.php",
+                    "generated/apache.php",
+                    "generated/apcu.php",
+                    "generated/array.php",
+                    "generated/bzip2.php",
+                    "generated/calendar.php",
+                    "generated/classobj.php",
+                    "generated/com.php",
+                    "generated/cubrid.php",
+                    "generated/curl.php",
+                    "generated/datetime.php",
+                    "generated/dir.php",
+                    "generated/eio.php",
+                    "generated/errorfunc.php",
+                    "generated/exec.php",
+                    "generated/fileinfo.php",
+                    "generated/filesystem.php",
+                    "generated/filter.php",
+                    "generated/fpm.php",
+                    "generated/ftp.php",
+                    "generated/funchand.php",
+                    "generated/gettext.php",
+                    "generated/gmp.php",
+                    "generated/gnupg.php",
+                    "generated/hash.php",
+                    "generated/ibase.php",
+                    "generated/ibmDb2.php",
+                    "generated/iconv.php",
+                    "generated/image.php",
+                    "generated/imap.php",
+                    "generated/info.php",
+                    "generated/inotify.php",
+                    "generated/json.php",
+                    "generated/ldap.php",
+                    "generated/libxml.php",
+                    "generated/lzf.php",
+                    "generated/mailparse.php",
+                    "generated/mbstring.php",
+                    "generated/misc.php",
+                    "generated/mysql.php",
+                    "generated/mysqli.php",
+                    "generated/network.php",
+                    "generated/oci8.php",
+                    "generated/opcache.php",
+                    "generated/openssl.php",
+                    "generated/outcontrol.php",
+                    "generated/pcntl.php",
+                    "generated/pcre.php",
+                    "generated/pgsql.php",
+                    "generated/posix.php",
+                    "generated/ps.php",
+                    "generated/pspell.php",
+                    "generated/readline.php",
+                    "generated/rnp.php",
+                    "generated/rpminfo.php",
+                    "generated/rrd.php",
+                    "generated/sem.php",
+                    "generated/session.php",
+                    "generated/shmop.php",
+                    "generated/sockets.php",
+                    "generated/sodium.php",
+                    "generated/solr.php",
+                    "generated/spl.php",
+                    "generated/sqlsrv.php",
+                    "generated/ssdeep.php",
+                    "generated/ssh2.php",
+                    "generated/stream.php",
+                    "generated/strings.php",
+                    "generated/swoole.php",
+                    "generated/uodbc.php",
+                    "generated/uopz.php",
+                    "generated/url.php",
+                    "generated/var.php",
+                    "generated/xdiff.php",
+                    "generated/xml.php",
+                    "generated/xmlrpc.php",
+                    "generated/yaml.php",
+                    "generated/yaz.php",
+                    "generated/zip.php",
+                    "generated/zlib.php"
+                ],
+                "classmap": [
+                    "lib/DateTime.php",
+                    "lib/DateTimeImmutable.php",
+                    "lib/Exceptions/",
+                    "generated/Exceptions/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
+            "support": {
+                "issues": "https://github.com/thecodingmachine/safe/issues",
+                "source": "https://github.com/thecodingmachine/safe/tree/v3.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/OskarStark",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/shish",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/staabm",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-05-14T06:15:44+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
