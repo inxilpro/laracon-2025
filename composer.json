@@ -13,7 +13,8 @@
         "glhd/conveyor-belt": "^2.2.0",
         "hosmelq/name-of-person": "^0.3.0",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "prism-php/prism": "^0.80.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

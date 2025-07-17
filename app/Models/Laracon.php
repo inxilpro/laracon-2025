@@ -4,8 +4,10 @@ namespace App\Models;
 
 use App\Database\HasCommaList;
 use App\Database\HasNear;
+use App\Database\HasSpeakers;
 use App\Locatable;
 use App\Support\Distance;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Laracon extends Model implements Locatable
@@ -19,6 +21,15 @@ class Laracon extends Model implements Locatable
 	
 	public function speakers()
 	{
-		return new HasCommaList($this, new Speaker(), 'speakers', 'name');
+		return new HasSpeakers($this);
+		// return new HasCommaList($this, new Speaker(), 'speaker_ids', 'id');
+	}
+	
+	public function speakerIds(): Attribute
+	{
+		return Attribute::make(
+			get: fn($value) => explode(',', $value),
+			set: fn($value) => is_array($value) ? implode(',', $value) : $value,
+		);
 	}
 }
