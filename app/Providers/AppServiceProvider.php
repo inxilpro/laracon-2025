@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
 	{
 		Model::unguard();
 		
-		// Prism::fake(array_map(fn($text) => TextResponseFake::make()->withText($text), $this->cachedResponses()));
+		Prism::fake(array_map(
+			fn($data) => TextResponseFake::make()->withText(json_encode($data, JSON_PRETTY_PRINT)),
+			json_decode(file_get_contents(resource_path('data/alzara.json')), associative: true, flags: JSON_THROW_ON_ERROR)
+		));
 	}
 }

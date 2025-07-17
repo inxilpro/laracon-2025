@@ -278,5 +278,137 @@
                 "Philo Hermans"
             ]
         }
+    ],
+    [
+        {
+            "title": "Philadelphia, PA (2026)",
+            "location": {
+                "latitude": 39.952583,
+                "longitude": -75.165222
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Chris Morrell",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Luke Downing",
+                "Tim MacDonald",
+                "Diana Scharf",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Freek Van der Herten",
+                "Colin DeCarlo",
+                "Joe Dixon",
+                "Zuzana Kunckova",
+                "Joel Clermont",
+                "Ben Orenstein",
+                "Stephen Rees-Carter"
+            ]
+        },
+        {
+            "title": "Austin, TX (2027)",
+            "location": {
+                "latitude": 30.267153,
+                "longitude": -97.743061
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Matt Stauffer",
+                "Caleb Porzio",
+                "Jack McDade",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Joe Tannenbaum",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne",
+                "Tim MacDonald",
+                "Christoph Rumpel",
+                "Bobby Bouwmann",
+                "Jake Bennett",
+                "Mateus Guimaraes",
+                "Philo Hermans",
+                "Rissa Jackson"
+            ]
+        },
+        {
+            "title": "Portland, OR (2028)",
+            "location": {
+                "latitude": 45.515232,
+                "longitude": -122.678967
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Jason McCreary",
+                "Luke Downing",
+                "Joe Dixon",
+                "Chris Morrell",
+                "Diana Scharf",
+                "Marcel Pociot",
+                "Stephen Rees-Carter",
+                "Joel Clermont",
+                "Tim MacDonald",
+                "Zuzana Kunckova",
+                "Colin DeCarlo",
+                "Ben Orenstein",
+                "Dries Vints"
+            ]
+        },
+        {
+            "title": "Miami, FL (2029)",
+            "location": {
+                "latitude": 25.76168,
+                "longitude": -80.19179
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Caleb Porzio",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Jack McDade",
+                "Joe Tannenbaum",
+                "Kapehe Sevilleja",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Daniel Coulbourne",
+                "Jake Bennett",
+                "Philo Hermans",
+                "Chris Morrell",
+                "Luke Downing",
+                "Tim MacDonald",
+                "Jess Archer"
+            ]
+        },
+        {
+            "title": "Seattle, WA (2030)",
+            "location": {
+                "latitude": 47.608013,
+                "longitude": -122.335167
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Joe Dixon",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Nuno Maduro",
+                "Chris Morrell",
+                "Luke Downing",
+                "Diana Scharf",
+                "Stephen Rees-Carter",
+                "Bobby Bouwmann",
+                "Christoph Rumpel",
+                "Joel Clermont",
+                "Colin DeCarlo",
+                "Dries Vints",
+                "Tim MacDonald"
+            ]
+        }
     ]
 ]
