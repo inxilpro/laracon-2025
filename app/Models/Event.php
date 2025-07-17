@@ -10,7 +10,7 @@ use App\Support\Distance;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
-class Laracon extends Model implements Locatable
+class Event extends Model implements Locatable
 {
 	use HasLocation;
 	

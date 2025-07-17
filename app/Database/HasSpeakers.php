@@ -3,21 +3,21 @@
 namespace App\Database;
 
 use App\Database\Types\HasSpeakersTypes;
-use App\Models\Laracon;
+use App\Models\Event;
 use App\Models\Speaker;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class HasSpeakers extends SimplifiedManyRelation implements HasSpeakersTypes
 {
-	public function __construct(Laracon $laracon)
+	public function __construct(Event $event)
 	{
-		parent::__construct($laracon, new Speaker());
+		parent::__construct($event, new Speaker());
 	}
 	
 	public function addEagerConstraints(array $models): void
 	{
 		$ids = collect($models)
-			->flatMap(fn(Laracon $laracon) => $laracon->speaker_ids)
+			->flatMap(fn(Event $event) => $event->speaker_ids)
 			->unique();
 		
 		$this->query->whereIn('id', $ids);
@@ -26,16 +26,16 @@ class HasSpeakers extends SimplifiedManyRelation implements HasSpeakersTypes
 	public function match(array $models, EloquentCollection $results, $relation): array
 	{
 		$dictionary = [];
-		foreach ($models as $laracon) {
-			foreach ($laracon->speaker_ids as $index => $id) {
+		foreach ($models as $event) {
+			foreach ($event->speaker_ids as $id) {
 				$dictionary[$id] ??= [];
-				$dictionary[$id][] = $laracon;
+				$dictionary[$id][] = $event;
 			}
 		}
 		
 		foreach ($results as $speaker) {
-			foreach ($dictionary[$speaker->id] ?? [] as $laracon) {
-				$laracon->getRelation($relation)->push($speaker);
+			foreach ($dictionary[$speaker->id] ?? [] as $event) {
+				$event->getRelation($relation)->push($speaker);
 			}
 		}
 		

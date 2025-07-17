@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Laracon;
+use App\Models\Event;
+use App\Models\Organization;
 use App\Models\Speaker;
 use App\Support\Coordinates;
 use Glhd\ConveyorBelt\IteratesEnumerable;
@@ -136,12 +137,15 @@ class ImportLaraconDbCommand extends Command
 	
 	protected $signature = 'import:laracon-db {filename}';
 	
+	protected array $organizations = [];
+	
 	protected array $speakers = [];
 	
 	public function beforeFirstRow()
 	{
-		Laracon::truncate();
 		Speaker::truncate();
+		Event::truncate();
+		Organization::truncate();
 	}
 	
 	public function collect(): Enumerable
@@ -185,10 +189,13 @@ class ImportLaraconDbCommand extends Command
 				]);
 			});
 		
-		Laracon::create([
-			'organization' => $item->edition,
+		$organization = $this->organizations[$item->edition] ??= Organization::create([
+			'name' => $item->edition,
+		]);
+		
+		$organization->events()->create([
 			'title' => "{$item->location} ({$item->year})",
-			'coordinates' => new Coordinates($item->coordinates['lat'], $item->coordinates['lng']),
+			'location' => new Coordinates($item->coordinates['lat'], $item->coordinates['lng']),
 			'speaker_ids' => $speakers->pluck('id')->implode(','),
 		]);
 	}

@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
 	public function up(): void
 	{
-		Schema::create('laracons', function(Blueprint $table) {
+		Schema::create('events', function(Blueprint $table) {
 			$table->id();
-			$table->string('organization')->index();
+			$table->foreignId('organization_id');
 			$table->string('title');
 			$table->geometry('location', subtype: 'point');
 			$table->string('speaker_ids');
@@ -25,6 +25,6 @@ return new class extends Migration {
 	
 	public function down(): void
 	{
-		Schema::dropIfExists('laracons');
+		Schema::dropIfExists('events');
 	}
 };
