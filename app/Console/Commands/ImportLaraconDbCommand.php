@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Data\Coordinates;
 use App\Models\Laracon;
 use App\Models\Speaker;
+use App\Support\Coordinates;
 use Glhd\ConveyorBelt\IteratesEnumerable;
 use Illuminate\Console\Command;
 use Illuminate\Support\Enumerable;

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Data\Coordinates;
+use App\Support\Coordinates;
 use App\Support\Distance;
 
 interface Locatable

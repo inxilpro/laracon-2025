@@ -2,7 +2,7 @@
 
 namespace App\Casts;
 
-use App\Data\Coordinates;
+use App\Support\Coordinates;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Data\Coordinates;
+use App\Support\Coordinates;
 use App\Support\Haversine;
 use PHPUnit\Framework\TestCase;
 

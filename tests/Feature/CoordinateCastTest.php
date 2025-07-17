@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Data\Coordinates;
 use App\Models\Laracon;
+use App\Support\Coordinates;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

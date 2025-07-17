@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Data\Coordinates;
 use App\Models\CellTower;
+use App\Support\Coordinates;
 use Glhd\ConveyorBelt\IteratesSpreadsheet;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Date;

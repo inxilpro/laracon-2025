@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Support;
 
 use App\Casts\CoordinatesCast;
 use Illuminate\Contracts\Database\Eloquent\Castable;

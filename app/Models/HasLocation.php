@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Data\Coordinates;
 use App\Locatable;
+use App\Support\Coordinates;
 use App\Support\Distance;
 use App\Support\Haversine;
 

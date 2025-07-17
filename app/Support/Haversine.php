@@ -2,8 +2,6 @@
 
 namespace App\Support;
 
-use App\Data\Coordinates;
-
 class Haversine
 {
 	protected const int RADIUS_IN_METERS = 6_371_009;
