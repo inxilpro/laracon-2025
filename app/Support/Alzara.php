@@ -9,13 +9,15 @@ use Illuminate\Database\Eloquent\Collection;
 use Prism\Prism\Enums\Provider;
 use Prism\Prism\Prism;
 use Prism\Prism\Text\Response;
+use Throwable;
 
 class Alzara
 {
 	public function __construct(
 		protected Organization $organization,
-		protected Collection $past_events = new Collection(),
+		protected ?Collection $past_events = null,
 	) {
+		$this->past_events ??= $this->organization->events;
 	}
 	
 	public function prompt(int $number): string
@@ -47,21 +49,29 @@ class Alzara
 	
 	public function handle(int $number): Response
 	{
-		$result = Prism::text()
+		return Prism::text()
 			->using(Provider::Anthropic, 'claude-sonnet-4-20250514')
 			->withPrompt($this->prompt($number))
 			->asText();
-		
-		$cache = resource_path('data/alzara.json');
-		$json = json_decode(file_get_contents($cache));
-		$json[] = json_decode($result->text, associative: true);
-		file_put_contents($cache, json_encode($json, JSON_PRETTY_PRINT));
-		
-		return $result;
 	}
 	
 	public function data(int $number): array
 	{
-		return json_decode($this->handle($number)->text, associative: true);
+		try {
+			$result = $this->handle($number);
+			
+			$json = preg_replace('(^```json|```$)', '', $result->text);
+			$data = json_decode($json, associative: true, flags: JSON_THROW_ON_ERROR);
+			
+			$filename = resource_path('data/alzara.json');
+			$cache = json_decode(file_get_contents($filename));
+			$cache[] = $data;
+			file_put_contents($filename, json_encode($cache, JSON_PRETTY_PRINT));
+		} catch (Throwable $exception) {
+			dump($result ?? null, $exception);
+			throw $exception;
+		}
+		
+		return $data;
 	}
 }

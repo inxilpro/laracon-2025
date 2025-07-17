@@ -59,7 +59,7 @@
             "title": "Atlanta, GA (2028)",
             "location": {
                 "latitude": 33.753746,
-                "longitude": -84.386330
+                "longitude": -84.38633
             },
             "speakers": [
                 "Taylor Otwell",
@@ -136,6 +136,146 @@
                 "Jake Bennett",
                 "Seb Armand",
                 "Daniel Coulbourne"
+            ]
+        }
+    ],
+    [
+        {
+            "title": "Philadelphia, PA (2026)",
+            "location": {
+                "latitude": 39.952583,
+                "longitude": -75.165222
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Matt Stauffer",
+                "Caleb Porzio",
+                "Chris Morrell",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Jason McCreary",
+                "Aaron Francis",
+                "Luke Downing",
+                "Tim MacDonald",
+                "Diana Scharf",
+                "Jonathan Reinink",
+                "Ben Orenstein",
+                "Christoph Rumpel",
+                "Joe Dixon",
+                "Marcel Pociot",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne"
+            ]
+        },
+        {
+            "title": "Seattle, WA (2027)",
+            "location": {
+                "latitude": 47.606209,
+                "longitude": -122.332071
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Caleb Porzio",
+                "Jack McDade",
+                "Freek Van der Herten",
+                "Nuno Maduro",
+                "Joe Tannenbaum",
+                "Jess Archer",
+                "Luke Downing",
+                "Aaron Francis",
+                "Tim MacDonald",
+                "Joel Clermont",
+                "Bobby Bouwmann",
+                "Jonathan Reinink",
+                "Steve Schoger",
+                "Zuzana Kunckova",
+                "Mateus Guimaraes",
+                "Philo Hermans",
+                "Rissa Jackson"
+            ]
+        },
+        {
+            "title": "Atlanta, GA (2028)",
+            "location": {
+                "latitude": 33.748995,
+                "longitude": -84.387982
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Matt Stauffer",
+                "Jason McCreary",
+                "Caleb Porzio",
+                "Marcel Pociot",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Chris Morrell",
+                "Aaron Francis",
+                "Diana Scharf",
+                "Jake Bennett",
+                "Stephen Rees-Carter",
+                "Ben Orenstein",
+                "Joe Dixon",
+                "Kapehe Sevilleja",
+                "Tim MacDonald",
+                "Daniel Coulbourne",
+                "Luke Downing"
+            ]
+        },
+        {
+            "title": "Portland, OR (2029)",
+            "location": {
+                "latitude": 45.515232,
+                "longitude": -122.678953
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Colin DeCarlo",
+                "Jack McDade",
+                "Freek Van der Herten",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Joe Tannenbaum",
+                "Aaron Francis",
+                "Luke Downing",
+                "Tim MacDonald",
+                "Joel Clermont",
+                "Jonathan Reinink",
+                "Christoph Rumpel",
+                "Bobby Bouwmann",
+                "Mateus Guimaraes",
+                "Zuzana Kunckova",
+                "Rissa Jackson"
+            ]
+        },
+        {
+            "title": "Miami, FL (2030)",
+            "location": {
+                "latitude": 25.761681,
+                "longitude": -80.191788
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Matt Stauffer",
+                "Caleb Porzio",
+                "Marcel Pociot",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Jason McCreary",
+                "Chris Morrell",
+                "Aaron Francis",
+                "Joe Dixon",
+                "Luke Downing",
+                "Diana Scharf",
+                "Jake Bennett",
+                "Stephen Rees-Carter",
+                "Tim MacDonald",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne",
+                "Philo Hermans"
             ]
         }
     ]
