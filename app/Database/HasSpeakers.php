@@ -16,29 +16,11 @@ class HasSpeakers extends SimplifiedManyRelation implements HasSpeakersTypes
 	
 	public function addEagerConstraints(array $models): void
 	{
-		$ids = collect($models)
-			->flatMap(fn(Event $event) => $event->speaker_ids)
-			->unique();
-		
-		$this->query->whereIn('id', $ids);
+		//
 	}
 	
 	public function match(array $models, EloquentCollection $results, $relation): array
 	{
-		$dictionary = [];
-		foreach ($models as $event) {
-			foreach ($event->speaker_ids as $id) {
-				$dictionary[$id] ??= [];
-				$dictionary[$id][] = $event;
-			}
-		}
-		
-		foreach ($results as $speaker) {
-			foreach ($dictionary[$speaker->id] ?? [] as $event) {
-				$event->getRelation($relation)->push($speaker);
-			}
-		}
-		
-		return $models;
+		//
 	}
 }
