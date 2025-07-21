@@ -17,8 +17,8 @@ class Event extends Model implements Locatable, EventTypes
 		return $this->belongsTo(Organization::class);
 	}
 	
-	public function cell_towers()
+	public function coffee_shops()
 	{
-		return new HasNear($this, new CellTower(), new Distance(500));
+		return new HasNear($this, new CoffeeShop(), new Distance(500));
 	}
 }
