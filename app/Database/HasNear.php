@@ -43,7 +43,7 @@ class HasNear extends SimplifiedManyRelation implements HasNearTypes
 			
 			foreach ($results as $related) {
 				if ($parent->distance($related)->lte($this->threshold)) {
-					$collection->push($related);
+					$collection->push(clone $related);
 				}
 			}
 			

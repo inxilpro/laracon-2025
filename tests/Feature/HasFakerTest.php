@@ -3,9 +3,11 @@
 namespace Feature;
 
 use App\Database\HasFaker;
+use App\Models\Organization;
+use App\Support\Alzara;
+use Faker\Factory;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User;
 use Tests\TestCase;
 
 class HasFakerTest extends TestCase
@@ -22,12 +24,12 @@ class HasFakerTest extends TestCase
 
 class HasFakerTestParentModel extends Model
 {
-	public function user()
+	public function children()
 	{
 		return new HasFaker(
 			parent: $this,
-			related: new User(),
-			count: 5,
+			related: new HasFakerTestChildModel(),
+			count: random_int(2, 8),
 			factory: fn(Faker $faker, $index) => [
 				'id' => $index,
 				'name' => $faker->name(),

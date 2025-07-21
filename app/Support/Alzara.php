@@ -42,8 +42,7 @@ class Alzara
 		locations and a diverse set of plausible speakers (based on prominence within the 
 		Laravel community, past speaking history, various backgrounds, etc).
 		
-		(Also, let's please have an event in or around Philadelphia, and make sure 
-		Chris Morrell is speaking at that one.)
+		Make sure one is in Philly, and that Chris Morrell is speaking at it.
 		MARKDOWN;
 	}
 	
