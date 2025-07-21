@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Types\SpeakerTypes;
 use HosmelQ\NameOfPerson\PersonName;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Uri;
 
-class Speaker extends Model
+class Speaker extends Model implements SpeakerTypes
 {
 	public function name(): Attribute
 	{

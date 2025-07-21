@@ -6,12 +6,12 @@ use App\Database\HasNear;
 use App\Database\HasPredictedEvents;
 use App\Database\HasSpeakers;
 use App\Locatable;
+use App\Models\Types\OrganizationTypes;
 use App\Support\Distance;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
-/** @property-read \Illuminate\Database\Eloquent\Collection<int,\App\Models\Event> $more_events */
-class Organization extends Model
+class Organization extends Model implements OrganizationTypes
 {
 	public function events()
 	{

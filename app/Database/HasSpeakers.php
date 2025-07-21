@@ -16,7 +16,6 @@ class HasSpeakers extends SimplifiedManyRelation implements HasSpeakersTypes
 	
 	public function addEagerConstraints(array $models): void
 	{
-		
 	}
 	
 	public function match(array $models, EloquentCollection $results, $relation): array
