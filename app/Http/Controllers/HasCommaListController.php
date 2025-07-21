@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Organization;
 use Throwable;
 
-class HasSpeakersController extends Controller
+class HasCommaListController extends Controller
 {
 	public function __invoke()
 	{
@@ -19,7 +19,7 @@ class HasSpeakersController extends Controller
 			$this->shareExceptionForDemo($exception);
 		}
 		
-		return view('demos.1', [
+		return view('demos.2', [
 			'orgs' => $orgs ?? [],
 		]);
 	}

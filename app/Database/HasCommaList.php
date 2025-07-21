@@ -15,8 +15,8 @@ class HasCommaList extends SimplifiedManyRelation
 	public function __construct(
 		Model $parent,
 		Model $related,
-		protected string $parent_column,
-		protected string $related_column,
+		protected string $foreign_key,
+		protected string $local_key,
 	) {
 		parent::__construct($parent, $related);
 	}
@@ -24,24 +24,24 @@ class HasCommaList extends SimplifiedManyRelation
 	public function addEagerConstraints(array $models): void
 	{
 		$values = collect($models)
-			->flatMap($this->getListFromParent(...))
+			->flatMap($this->getKeysFromParent(...))
 			->unique();
 		
-		$this->query->whereIn($this->related_column, $values);
+		$this->query->whereIn($this->local_key, $values);
 	}
 	
 	public function match(array $models, EloquentCollection $results, $relation): array
 	{
 		$dictionary = [];
 		foreach ($models as $parent) {
-			foreach ($this->getListFromParent($parent) as $value) {
+			foreach ($this->getKeysFromParent($parent) as $value) {
 				$dictionary[$value] ??= [];
 				$dictionary[$value][] = $parent;
 			}
 		}
 		
 		foreach ($results as $related) {
-			foreach ($dictionary[$related->getAttribute($this->related_column)] ?? [] as $parent) {
+			foreach ($dictionary[$related->getAttribute($this->local_key)] ?? [] as $parent) {
 				$parent->getRelation($relation)->push($related);
 			}
 		}
@@ -49,8 +49,8 @@ class HasCommaList extends SimplifiedManyRelation
 		return $models;
 	}
 	
-	protected function getListFromParent(Model $model): array
+	protected function getKeysFromParent(Model $model): array
 	{
-		return explode(',', $model->getAttribute($this->parent_column));
+		return explode(',', $model->getAttribute($this->foreign_key));
 	}
 }
