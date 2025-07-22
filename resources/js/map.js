@@ -7,6 +7,7 @@ const node = document.getElementById('map');
 
 const map = createMap(node, {
 	zoomDelta: 3,
+	zoomSnap: 3,
 }).setView([39.645776, -104.800734], 5);
 
 window.addEventListener('invalidatemapsize', () => {

@@ -24,11 +24,9 @@ class HasNear extends SimplifiedManyRelation implements HasNearTypes
 		$this->query->where(function(Builder $query) use ($models) {
 			foreach ($models as $parent) {
 				$distance_expr = <<<SQL
-					ST_Distance_Sphere(  -- calculate the spherical distance
-						`location`,      -- from the table's location column
-						ST_GeomFromText( -- to a point() representing our lat/lng
-							"point({$parent->coordinates()->longitude} {$parent->coordinates()->latitude})"
-						)
+					ST_Distance_Sphere(
+						`location`,
+						point({$parent->coordinates()->longitude}, {$parent->coordinates()->latitude})
 					)
 				SQL;
 				$query->orWhereRaw("{$distance_expr} < {$this->threshold}");

@@ -24,9 +24,8 @@ class Speaker extends Model implements SpeakerTypes
 			return 'https://unavatar.io/x/'.$this->twitter;
 		}
 		
-		return Uri::of('https://avatar.vercel.sh')
-			->withPath(Str::of($this->name->full())->slug()->finish('.svg'))
-			->withQuery(['text' => $this->name->initials()])
+		return Uri::of(url('/avatar'))
+			->withQuery(['initials' => $this->name->initials()])
 			->value();
 	}
 }
