@@ -12,8 +12,10 @@ class HasSpeakersController extends Controller
 		try {
 			
 			$orgs = Organization::query()
-				->with('events.speakers')
+				->with('events')
 				->get();
+			
+			$orgs->loadMissing('events.speakers');
 			
 		} catch (Throwable $exception) {
 			$this->shareExceptionForDemo($exception);
