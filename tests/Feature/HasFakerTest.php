@@ -29,7 +29,7 @@ class HasFakerTestParentModel extends Model
 		return new HasFaker(
 			parent: $this,
 			related: new HasFakerTestChildModel(),
-			count: random_int(2, 8),
+			min: random_int(2, 8),
 			factory: fn(Faker $faker, $index) => [
 				'id' => $index,
 				'name' => $faker->name(),

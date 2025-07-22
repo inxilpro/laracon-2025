@@ -17,7 +17,8 @@ class HasFaker extends SimplifiedManyRelation
 	public function __construct(
 		Model $parent,
 		Model $related,
-		protected int $count,
+		protected int $min,
+		protected int $max,
 		protected Closure $factory,
 	) {
 		parent::__construct($parent, $related);
@@ -58,8 +59,9 @@ class HasFaker extends SimplifiedManyRelation
 	{
 		$faker = Factory::create();
 		$collection = $this->related->newCollection();
+		$count = random_int($this->min, $this->max);
 		
-		for ($i = 0; $i < $this->count; $i++) {
+		for ($i = 0; $i < $count; $i++) {
 			$attributes = call_user_func($this->factory, $faker, $i);
 			$collection->push($this->related->newInstance($attributes));
 		}
