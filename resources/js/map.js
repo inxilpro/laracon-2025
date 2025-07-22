@@ -9,13 +9,16 @@ const map = createMap(node, {
 	zoomDelta: 3,
 }).setView([39.645776, -104.800734], 5);
 
+window.addEventListener('invalidatemapsize', () => {
+	setTimeout(() => map.invalidateSize({ debounceMoveend: true }), 1);
+});
+
 tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 	maxZoom: 15,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> + <a href="https://carto.com/attributions">CARTO</a>'
 }).addTo(map);
 
 const events = JSON.parse(node.dataset.map);
-console.log({ events });
 
 const LaraconIcon = icon({
 	iconUrl: laracon_pin,

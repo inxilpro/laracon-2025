@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CellTower;
+use App\Models\Letter;
 use App\Support\Coordinates;
 use Glhd\ConveyorBelt\IteratesSpreadsheet;
 use Illuminate\Console\Command;
@@ -46,7 +46,7 @@ class ImportCellTowersCommand extends Command
 	public function handleRow(stdClass $item)
 	{
 		try {
-			CellTower::create([
+			Letter::create([
 				'radio' => $item->radio,
 				'range' => (int) $item->range,
 				'location' => new Coordinates((float) $item->latitude, (float) $item->longitude),
