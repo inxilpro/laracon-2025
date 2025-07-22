@@ -14,11 +14,11 @@
 							<td class="whitespace-nowrap py-4 pl-4 pr-3 text-xl font-slant text-gray-900 sm:pl-6">
 								{{ $speaker->name->full() }}
 							</td>
-							<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+							<td class="whitespace-nowrap px-3 py-4">
 								@if($speaker->letters?->count())
 									<div class="flex -space-x-1 overflow-hidden">
 										@foreach($speaker->letters as $letter)
-											<div class="inline-flex items-center justify-center size-8 rounded-full bg-gray-200 ring-2 ring-white">
+											<div class="inline-flex font-slant text-2xl items-center justify-center size-8 rounded-full bg-gray-100 text-gray-900/60 ring-2 ring-white">
 												{{ $letter->value }}
 											</div>
 										@endforeach
