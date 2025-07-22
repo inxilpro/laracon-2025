@@ -1,4 +1,4 @@
-<x-step :step="3">
+<x-step :step="2">
 	<x-slot:head>
 		@vite(['resources/js/map.js', 'node_modules/leaflet/dist/leaflet.css'])
 	</x-slot:head>

@@ -21,7 +21,7 @@ class HasSpeakersController extends Controller
 			$this->shareExceptionForDemo($exception);
 		}
 		
-		return view('demos.1', [
+		return view('demos.has-speakers', [
 			'orgs' => $orgs ?? [],
 		]);
 	}

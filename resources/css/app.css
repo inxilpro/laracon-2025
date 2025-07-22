@@ -1,11 +1,21 @@
 @import 'tailwindcss';
 
+@font-face {
+    font-family: "House Slant";
+    src: url('../fonts/HouseSlant.eot');
+    src: url("../fonts/HouseSlant.eot?#iefix") format("embedded-opentype"), url("../fonts/HouseSlant.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+    font-display: swap;
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-slant: "House Slant", ui-serif, serif;
 }

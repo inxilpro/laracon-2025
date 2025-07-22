@@ -21,7 +21,7 @@ class HasNearController extends Controller
 			$this->shareExceptionForDemo($exception);
 		}
 		
-		return view('demos.3', [
+		return view('demos.has-near', [
 			'events' => $events,
 		]);
 	}

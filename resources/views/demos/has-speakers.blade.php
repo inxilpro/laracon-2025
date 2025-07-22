@@ -1,10 +1,10 @@
-<x-step :step="2">
+<x-step :step="1">
 	
 	<main class="p-8">
 		<div class="space-y-4">
 			@foreach($orgs as $org)
 				
-				<h1 class="font-semibold text-gray-500">
+				<h1 class="font-slant text-2xl text-pink-500">
 					{{ $org->name }}
 				</h1>
 				
@@ -19,7 +19,7 @@
 						<tbody class="divide-y divide-gray-200 bg-white">
 							@foreach($org->events as $event)
 								<tr>
-									<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+									<td class="whitespace-nowrap py-4 pl-4 pr-3 text-xl font-slant text-gray-900 sm:pl-6">
 										{{ $event->title }}
 									</td>
 									<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -48,5 +48,5 @@
 			@endforeach
 		</div>
 	</main>
-
+	
 </x-step>

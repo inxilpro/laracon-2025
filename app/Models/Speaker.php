@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Database\HasLetters;
 use App\Models\Types\SpeakerTypes;
 use HosmelQ\NameOfPerson\PersonName;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -11,6 +12,11 @@ use Illuminate\Support\Uri;
 
 class Speaker extends Model implements SpeakerTypes
 {
+	public function letters()
+	{
+		return new HasLetters($this, 'name');
+	}
+	
 	public function name(): Attribute
 	{
 		return Attribute::make(
@@ -26,7 +32,7 @@ class Speaker extends Model implements SpeakerTypes
 		
 		return Uri::of('https://avatar.vercel.sh')
 			->withPath(Str::of($this->name->full())->slug()->finish('.svg'))
-			->pushOntoQuery('text', $this->name->initials())
+			->withQuery(['text' => $this->name->initials()])
 			->value();
 	}
 }

@@ -19,7 +19,7 @@ class HasLettersController extends Controller
 			$this->shareExceptionForDemo($exception);
 		}
 		
-		return view('demos.4', [
+		return view('demos.has-letters', [
 			'speakers' => $speakers ?? [],
 		]);
 	}

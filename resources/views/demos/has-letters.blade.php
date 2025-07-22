@@ -1,4 +1,4 @@
-<x-step :step="4">
+<x-step :step="3">
 	<main class="p-8">
 		<div class="overflow-x-auto shadow ring-1 ring-black/5 sm:rounded-lg">
 			<table class="min-w-full divide-y divide-gray-300">
