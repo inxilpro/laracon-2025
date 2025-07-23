@@ -1,14 +1,15 @@
 import { icon, map as createMap, marker, tileLayer } from 'leaflet/dist/leaflet-src.esm.js';
 import cup_pin from '../../public/cup@2x.png';
 import laracon_pin from '../../public/laracon-pin@2x.png';
+import laracon_prediction_pin from '../../public/laracon-prediction-pin@2x.png';
 import laracon_pin_shadow from '../../public/laracon-pin-shadow@2x.png';
 
 const node = document.getElementById('map');
 
 const map = createMap(node, {
-	zoomDelta: 3,
-	zoomSnap: 3,
-}).setView([39.645776, -104.800734], 5);
+	// zoomDelta: 3,
+	// zoomSnap: 3,
+}).setView([39.82818, -98.5795], 5);
 
 window.addEventListener('invalidatemapsize', () => {
 	setTimeout(() => map.invalidateSize({ debounceMoveend: true }), 1);
@@ -24,7 +25,15 @@ const events = JSON.parse(node.dataset.map);
 const LaraconIcon = icon({
 	iconUrl: laracon_pin,
 	iconSize: [25, 34],
-	iconAnchor: [22, 33],
+	iconAnchor: [13, 20],
+	shadowUrl: laracon_pin_shadow,
+	shadowSize: [40, 34],
+});
+
+const LaraconPredictionIcon = icon({
+	iconUrl: laracon_prediction_pin,
+	iconSize: [25, 34],
+	iconAnchor: [13, 20],
 	shadowUrl: laracon_pin_shadow,
 	shadowSize: [40, 34],
 });
@@ -38,9 +47,11 @@ const CoffeeCupIcon = icon({
 events.forEach((event) => {
 	marker([event.location.latitude, event.location.longitude], {
 		title: event.title,
-		icon: LaraconIcon,
+		icon: event.exists ? LaraconIcon : LaraconPredictionIcon,
 		zIndexOffset: 1000,
-	}).addTo(map);
+	})
+		.bindPopup(event.title)
+		.addTo(map);
 	
 	if ('coffee_shops' in event) {
 		event.coffee_shops.forEach((tower) => {
