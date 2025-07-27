@@ -549,5 +549,144 @@
                 "Aaron Francis"
             ]
         }
+    ],
+    [
+        {
+            "title": "Philadelphia, PA (2026)",
+            "location": {
+                "latitude": 39.952583,
+                "longitude": -75.165222
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Chris Morrell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Luke Downing",
+                "Joe Dixon",
+                "Tim MacDonald",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Freek Van der Herten",
+                "Jack McDade",
+                "Colin DeCarlo",
+                "Zuzana Kunckova",
+                "Diana Scharf",
+                "Joel Clermont",
+                "Ben Orenstein"
+            ]
+        },
+        {
+            "title": "Salt Lake City, UT (2027)",
+            "location": {
+                "latitude": 40.758701,
+                "longitude": -111.876183
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Caleb Porzio",
+                "Nuno Maduro",
+                "Joe Tannenbaum",
+                "Aaron Francis",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Philo Hermans",
+                "Jake Bennett",
+                "Tim MacDonald",
+                "Luke Downing",
+                "Adam Wathan",
+                "Matt Stauffer",
+                "Jack McDade",
+                "Jess Archer",
+                "Bobby Bouwmann"
+            ]
+        },
+        {
+            "title": "Boston, MA (2028)",
+            "location": {
+                "latitude": 42.358431,
+                "longitude": -71.063611
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Colin DeCarlo",
+                "Jason McCreary",
+                "Joe Dixon",
+                "Luke Downing",
+                "Chris Morrell",
+                "Marcel Pociot",
+                "Stephen Rees-Carter",
+                "Joel Clermont",
+                "Tim MacDonald",
+                "Zuzana Kunckova",
+                "Diana Scharf",
+                "Ben Orenstein",
+                "Dries Vints",
+                "Christoph Rumpel",
+                "Aaron Francis"
+            ]
+        },
+        {
+            "title": "Las Vegas, NV (2029)",
+            "location": {
+                "latitude": 36.169941,
+                "longitude": -115.13983
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Joe Tannenbaum",
+                "Jack McDade",
+                "Kapehe Sevilleja",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Daniel Coulbourne",
+                "Jake Bennett",
+                "Philo Hermans",
+                "Tim MacDonald",
+                "Luke Downing",
+                "Jess Archer",
+                "Joe Dixon",
+                "Chris Morrell"
+            ]
+        },
+        {
+            "title": "San Antonio, TX (2030)",
+            "location": {
+                "latitude": 29.424349,
+                "longitude": -98.491142
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Matt Stauffer",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Nuno Maduro",
+                "Joe Dixon",
+                "Luke Downing",
+                "Chris Morrell",
+                "Stephen Rees-Carter",
+                "Bobby Bouwmann",
+                "Christoph Rumpel",
+                "Joel Clermont",
+                "Colin DeCarlo",
+                "Dries Vints",
+                "Tim MacDonald",
+                "Diana Scharf",
+                "Aaron Francis"
+            ]
+        }
     ]
 ]
