@@ -1,4 +1,4 @@
-<x-step :step="4">
+<x-step :step="3">
 	<main
 		class="p-8 flex-1 flex flex-col"
 		x-data="{

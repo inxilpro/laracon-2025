@@ -1,4 +1,4 @@
-<x-step :step="3">
+<x-step :step="4">
 	<main class="p-8">
 		<div class="overflow-x-auto shadow ring-1 ring-black/5 sm:rounded-lg">
 			<table class="min-w-full divide-y divide-gray-300">
@@ -19,7 +19,7 @@
 									<div class="flex -space-x-1 overflow-hidden">
 										@foreach($speaker->letters as $letter)
 											<div class="inline-flex font-slant text-2xl items-center justify-center size-8 rounded-full bg-gray-100 text-gray-900/60 ring-2 ring-white">
-												{{ $letter->value }}
+												{{ $letter }}
 											</div>
 										@endforeach
 									</div>

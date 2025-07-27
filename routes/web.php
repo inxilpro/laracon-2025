@@ -12,8 +12,8 @@ Route::redirect('/', '/demo/1');
 
 Route::get('/demo/1', HasSpeakersController::class);
 Route::get('/demo/2', HasNearController::class);
-Route::get('/demo/3', HasLettersController::class);
-Route::get('/demo/4', HasFakerController::class);
+Route::get('/demo/3', HasFakerController::class);
+Route::get('/demo/4', HasLettersController::class);
 Route::get('/demo/5', HasPredictedEventsController::class);
 
 Route::get('avatar', AvatarController::class);

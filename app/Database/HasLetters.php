@@ -23,8 +23,7 @@ class HasLetters extends SimplifiedManyRelation
 	
 	public function getEager()
 	{
-		return Collection::range('A', 'Z')
-			->map(fn($letter) => new Letter(['value' => $letter]));
+		return Collection::range('A', 'Z');
 	}
 	
 	public function match(array $models, EloquentCollection $results, $relation): array
@@ -32,9 +31,9 @@ class HasLetters extends SimplifiedManyRelation
 		foreach ($models as $parent) {
 			$collection = $parent->getRelation($relation);
 			
-			foreach ($results as $related) {
-				if (false !== stripos($parent->getAttribute($this->attribute), $related->value)) {
-					$collection->push($related);
+			foreach ($results as $letter) {
+				if (false !== stripos($parent->getAttribute($this->attribute), $letter)) {
+					$collection->push($letter);
 				}
 			}
 		}
