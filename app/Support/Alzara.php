@@ -102,6 +102,8 @@ class Alzara
 		
 		Please respond only with JSON that matches the above format. Try to predict a
 		diverse set of likely locations, and avoid predicting the same locations again.
+		
+		Please be sure to always include Philadelphia somewhere in the predictions.
 		MARKDOWN;
 	}
 }
