@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
 	public function up(): void
 	{
-		Schema::create('coffee_shops', function(Blueprint $table) {
+		Schema::create('ice_cream_shops', function(Blueprint $table) {
 			$table->id();
 			$table->string('name');
 			$table->integer('star_rating')->default(2);
@@ -24,6 +24,6 @@ return new class extends Migration {
 	
 	public function down(): void
 	{
-		Schema::dropIfExists('coffee_shops');
+		Schema::dropIfExists('ice_cream_shops');
 	}
 };

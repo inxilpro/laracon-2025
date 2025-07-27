@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CoffeeShop;
+use App\Models\IceCreamShop;
 use App\Models\Event;
 use App\Support\Haversine;
 use Glhd\ConveyorBelt\IteratesIdQuery;
@@ -125,7 +125,7 @@ class GenerateCoffeeShopsCommand extends Command
 	
 	public function beforeFirstRow()
 	{
-		CoffeeShop::truncate();
+		IceCreamShop::truncate();
 	}
 	
 	public function query()
@@ -143,7 +143,7 @@ class GenerateCoffeeShopsCommand extends Command
 		
 		for ($i = 0; $i < $shops; $i++) {
 			try {
-				CoffeeShop::create([
+				IceCreamShop::create([
 					'name' => Arr::random(static::NAMES),
 					'location' => Haversine::random($row->coordinates(), 200, 1000),
 				]);
@@ -153,7 +153,7 @@ class GenerateCoffeeShopsCommand extends Command
 		
 		for ($i = 0; $i < $shops; $i++) {
 			try {
-				CoffeeShop::create([
+				IceCreamShop::create([
 					'name' => Arr::random(static::NAMES),
 					'location' => Haversine::random($row->coordinates(), 1001, 2500),
 				]);

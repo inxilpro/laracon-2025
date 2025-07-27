@@ -13,6 +13,8 @@ use Throwable;
 
 class Alzara
 {
+	public const bool LIVE = false;
+	
 	public function __construct(
 		protected Organization $organization,
 		protected ?Collection $past_events = null,
@@ -22,27 +24,16 @@ class Alzara
 	
 	public function prompt(int $number): string
 	{
-		$this->past_events->loadMissing('speakers');
-		
-		$events = $this->past_events->map(function(Event $event) {
-			return array_merge($event->only(['title', 'location']), [
-				'speakers' => $event->speakers->map(fn(Speaker $speaker) => $speaker->name->full()),
-			]);
-		});
-		
 		return <<<MARKDOWN
 		Please predict the next {$number} of {$this->organization->name} events, based on the 
 		following JSON data representing past events:
 		
 		```json
-		{$events->toJson(JSON_PRETTY_PRINT)}
+		{$this->pastEventJson()}
 		```
 		
-		Please respond only with JSON that matches the above format. Try to predict likely
-		locations and a diverse set of plausible speakers (based on prominence within the 
-		Laravel community, past speaking history, various backgrounds, etc).
-		
-		Make sure one is in Philly, and that Chris Morrell is speaking at it.
+		Please respond only with JSON that matches the above format. Try to predict a
+		diverse set of likely locations, and avoid predicting the same locations again.
 		MARKDOWN;
 	}
 	
@@ -50,7 +41,7 @@ class Alzara
 	{
 		return Prism::text()
 			->using(Provider::Anthropic, 'claude-sonnet-4-20250514')
-			->withPrompt($this->prompt($number))
+			->withPrompt(static::LIVE ? $this->seedPrompt($number) : $this->prompt($number))
 			->asText();
 	}
 	
@@ -62,15 +53,55 @@ class Alzara
 			$json = preg_replace('(^```json|```$)', '', $result->text);
 			$data = json_decode($json, associative: true, flags: JSON_THROW_ON_ERROR);
 			
-			// $filename = resource_path('data/alzara.json');
-			// $cache = json_decode(file_get_contents($filename));
-			// $cache[] = $data;
-			// file_put_contents($filename, json_encode($cache, JSON_PRETTY_PRINT));
+			if (static::LIVE) {
+				$filename = resource_path('data/alzara.json');
+				$cache = json_decode(file_get_contents($filename));
+				$cache[] = $data;
+				file_put_contents($filename, json_encode($cache, JSON_PRETTY_PRINT));
+			}
 		} catch (Throwable $exception) {
-			dump($result ?? null, $exception);
+			if (static::LIVE) {
+				dump($result ?? null, $exception);
+			}
 			throw $exception;
 		}
 		
 		return $data;
+	}
+	
+	protected function pastEventJson(): string
+	{
+		$this->past_events->loadMissing('speakers');
+		
+		$events = $this->past_events->map(function(Event $event) {
+			return array_merge($event->only(['title', 'location']), [
+				'speakers' => $event->speakers->map(fn(Speaker $speaker) => $speaker->name->full()),
+			]);
+		});
+		
+		return $events->toJson(JSON_PRETTY_PRINT);
+	}
+	
+	protected function seedPrompt(int $number)
+	{
+		$past_predictions = file_get_contents(resource_path('data/alzara.json'));
+		
+		return <<<MARKDOWN
+		Please predict the next {$number} of {$this->organization->name} events, based on the 
+		following JSON data representing past events:
+		
+		```json
+		{$this->pastEventJson()}
+		```
+		
+		Here are past predictions:
+		
+		```
+		{$past_predictions}
+		```
+		
+		Please respond only with JSON that matches the above format. Try to predict a
+		diverse set of likely locations, and avoid predicting the same locations again.
+		MARKDOWN;
 	}
 }

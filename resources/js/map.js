@@ -1,5 +1,5 @@
-import { icon, map as createMap, marker, tileLayer } from 'leaflet/dist/leaflet-src.esm.js';
-import cup_pin from '../../public/cup@2x.png';
+import { icon, map as createMap, marker, tileLayer, popup } from 'leaflet/dist/leaflet-src.esm.js';
+import cup_pin from '../../public/cone@2x.png';
 import laracon_pin from '../../public/laracon-pin@2x.png';
 import laracon_prediction_pin from '../../public/laracon-prediction-pin@2x.png';
 import laracon_pin_shadow from '../../public/laracon-pin-shadow@2x.png';
@@ -40,21 +40,32 @@ const LaraconPredictionIcon = icon({
 
 const CoffeeCupIcon = icon({
 	iconUrl: cup_pin,
-	iconSize: [22, 25],
-	iconAnchor: [11, 13],
+	iconSize: [25, 34],
+	iconAnchor: [13, 20],
 });
 
 events.forEach((event) => {
-	marker([event.location.latitude, event.location.longitude], {
+	const coords = [event.location.latitude, event.location.longitude];
+	const label = popup()
+		.setLatLng(coords)
+		.setContent(event.title);
+	
+	marker(coords, {
 		title: event.title,
 		icon: event.exists ? LaraconIcon : LaraconPredictionIcon,
 		zIndexOffset: 1000,
 	})
-		.bindPopup(event.title)
+		.on('click', () => {
+			const zoom = map.getZoom() > 10 ? 5 : 15;
+			map.setView(coords, zoom);
+			if (15 === zoom) {
+				label.openOn(map);
+			}
+		})
 		.addTo(map);
 	
-	if ('coffee_shops' in event) {
-		event.coffee_shops.forEach((tower) => {
+	if ('ice_cream_shops' in event) {
+		event.ice_cream_shops.forEach((tower) => {
 			marker([tower.location.latitude, tower.location.longitude], {
 				title: tower.radio,
 				icon: CoffeeCupIcon,

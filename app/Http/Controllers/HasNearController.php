@@ -15,7 +15,7 @@ class HasNearController extends Controller
 				->events()
 				->get();
 			
-			$events->loadMissing('coffee_shops');
+			$events->loadMissing('ice_cream_shops');
 			
 		} catch (Throwable $exception) {
 			$this->shareExceptionForDemo($exception);
