@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Database\HasFaker;
 use App\Models\Types\TeamTypes;
+use Faker\Generator;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model implements TeamTypes

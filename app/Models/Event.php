@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Database\HasNear;
 use App\Locatable;
 use App\Models\Types\EventTypes;
+use App\Support\Distance;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model implements Locatable, EventTypes

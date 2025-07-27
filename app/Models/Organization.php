@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Database\HasFaker;
 use App\Models\Types\OrganizationTypes;
+use Faker\Generator;
 use Illuminate\Database\Eloquent\Model;
 
 class Organization extends Model implements OrganizationTypes
