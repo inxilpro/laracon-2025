@@ -827,5 +827,282 @@
                 "Aaron Francis"
             ]
         }
+    ],
+    [
+        {
+            "title": "Philadelphia, PA (2026)",
+            "location": {
+                "latitude": 39.952583,
+                "longitude": -75.165222
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Chris Morrell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Luke Downing",
+                "Joe Dixon",
+                "Tim MacDonald",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Freek Van der Herten",
+                "Jack McDade",
+                "Colin DeCarlo",
+                "Zuzana Kunckova",
+                "Diana Scharf",
+                "Joel Clermont",
+                "Ben Orenstein"
+            ]
+        },
+        {
+            "title": "Orlando, FL (2027)",
+            "location": {
+                "latitude": 28.538336,
+                "longitude": -81.379234
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Caleb Porzio",
+                "Nuno Maduro",
+                "Joe Tannenbaum",
+                "Aaron Francis",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Philo Hermans",
+                "Jake Bennett",
+                "Tim MacDonald",
+                "Luke Downing",
+                "Adam Wathan",
+                "Jack McDade",
+                "Jess Archer",
+                "Joe Dixon",
+                "Chris Morrell"
+            ]
+        },
+        {
+            "title": "Kansas City, MO (2028)",
+            "location": {
+                "latitude": 39.099727,
+                "longitude": -94.578567
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Colin DeCarlo",
+                "Jason McCreary",
+                "Joe Dixon",
+                "Luke Downing",
+                "Chris Morrell",
+                "Marcel Pociot",
+                "Stephen Rees-Carter",
+                "Joel Clermont",
+                "Tim MacDonald",
+                "Zuzana Kunckova",
+                "Diana Scharf",
+                "Ben Orenstein",
+                "Dries Vints",
+                "Christoph Rumpel",
+                "Aaron Francis"
+            ]
+        },
+        {
+            "title": "Raleigh, NC (2029)",
+            "location": {
+                "latitude": 35.771,
+                "longitude": -78.638
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Joe Tannenbaum",
+                "Jack McDade",
+                "Kapehe Sevilleja",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Daniel Coulbourne",
+                "Jake Bennett",
+                "Philo Hermans",
+                "Tim MacDonald",
+                "Luke Downing",
+                "Jess Archer",
+                "Joe Dixon",
+                "Chris Morrell"
+            ]
+        },
+        {
+            "title": "Columbus, OH (2030)",
+            "location": {
+                "latitude": 39.961176,
+                "longitude": -82.998794
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Matt Stauffer",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Nuno Maduro",
+                "Joe Dixon",
+                "Luke Downing",
+                "Chris Morrell",
+                "Stephen Rees-Carter",
+                "Bobby Bouwmann",
+                "Christoph Rumpel",
+                "Joel Clermont",
+                "Colin DeCarlo",
+                "Dries Vints",
+                "Tim MacDonald",
+                "Diana Scharf",
+                "Aaron Francis"
+            ]
+        }
+    ],
+    [
+        {
+            "title": "Philadelphia, PA (2026)",
+            "location": {
+                "latitude": 39.952583,
+                "longitude": -75.165222
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Chris Morrell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Jess Archer",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Luke Downing",
+                "Joe Dixon",
+                "Tim MacDonald",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Freek Van der Herten",
+                "Jack McDade",
+                "Colin DeCarlo",
+                "Zuzana Kunckova",
+                "Diana Scharf",
+                "Joel Clermont"
+            ]
+        },
+        {
+            "title": "San Diego, CA (2027)",
+            "location": {
+                "latitude": 32.715738,
+                "longitude": -117.161084
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Caleb Porzio",
+                "Evan You",
+                "Nuno Maduro",
+                "Joe Tannenbaum",
+                "Aaron Francis",
+                "Kapehe Sevilleja",
+                "Daniel Coulbourne",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Philo Hermans",
+                "Jake Bennett",
+                "Tim MacDonald",
+                "Luke Downing",
+                "Adam Wathan",
+                "Jack McDade",
+                "Jess Archer",
+                "Joe Dixon"
+            ]
+        },
+        {
+            "title": "Kansas City, MO (2028)",
+            "location": {
+                "latitude": 39.099727,
+                "longitude": -94.578567
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Colin DeCarlo",
+                "Jason McCreary",
+                "Joe Dixon",
+                "Luke Downing",
+                "Chris Morrell",
+                "Marcel Pociot",
+                "Stephen Rees-Carter",
+                "Joel Clermont",
+                "Tim MacDonald",
+                "Zuzana Kunckova",
+                "Diana Scharf",
+                "Ben Orenstein",
+                "Dries Vints",
+                "Christoph Rumpel",
+                "Aaron Francis"
+            ]
+        },
+        {
+            "title": "Tampa, FL (2029)",
+            "location": {
+                "latitude": 27.950575,
+                "longitude": -82.457178
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Adam Wathan",
+                "Caleb Porzio",
+                "Nuno Maduro",
+                "Aaron Francis",
+                "Joe Tannenbaum",
+                "Jack McDade",
+                "Kapehe Sevilleja",
+                "Mateus Guimaraes",
+                "Rissa Jackson",
+                "Daniel Coulbourne",
+                "Jake Bennett",
+                "Philo Hermans",
+                "Tim MacDonald",
+                "Luke Downing",
+                "Jess Archer",
+                "Joe Dixon",
+                "Chris Morrell"
+            ]
+        },
+        {
+            "title": "Cleveland, OH (2030)",
+            "location": {
+                "latitude": 41.49932,
+                "longitude": -81.694361
+            },
+            "speakers": [
+                "Taylor Otwell",
+                "Matt Stauffer",
+                "Jess Archer",
+                "Freek Van der Herten",
+                "Jason McCreary",
+                "Marcel Pociot",
+                "Nuno Maduro",
+                "Joe Dixon",
+                "Luke Downing",
+                "Chris Morrell",
+                "Stephen Rees-Carter",
+                "Bobby Bouwmann",
+                "Christoph Rumpel",
+                "Joel Clermont",
+                "Colin DeCarlo",
+                "Dries Vints",
+                "Tim MacDonald",
+                "Diana Scharf",
+                "Aaron Francis"
+            ]
+        }
     ]
 ]
