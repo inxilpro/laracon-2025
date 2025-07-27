@@ -1,4 +1,4 @@
-import { icon, map as createMap, marker, tileLayer, popup } from 'leaflet/dist/leaflet-src.esm.js';
+import { icon, map as createMap, marker, popup, tileLayer } from 'leaflet/dist/leaflet-src.esm.js';
 import cup_pin from '../../public/cone@2x.png';
 import laracon_pin from '../../public/laracon-pin@2x.png';
 import laracon_prediction_pin from '../../public/laracon-prediction-pin@2x.png';
@@ -56,9 +56,14 @@ events.forEach((event) => {
 		zIndexOffset: 1000,
 	})
 		.on('click', () => {
-			const zoom = map.getZoom() > 10 ? 5 : 15;
-			map.setView(coords, zoom);
-			if (15 === zoom) {
+			if ('ice_cream_shops' in event) {
+				const zoom = map.getZoom() > 10 ? 5 : 15;
+				map.setView(coords, zoom);
+				
+				if (15 === zoom) {
+					label.openOn(map);
+				}
+			} else {
 				label.openOn(map);
 			}
 		})
