@@ -16,4 +16,9 @@ class Event extends Model implements Locatable, EventTypes
 	{
 		return $this->belongsTo(Organization::class);
 	}
+	
+	public function toArray()
+	{
+		return parent::toArray() + ['exists' => $this->exists];
+	}
 }
