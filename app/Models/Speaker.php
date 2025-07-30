@@ -11,6 +11,11 @@ use Illuminate\Support\Uri;
 
 class Speaker extends Model implements SpeakerTypes
 {
+	public function letters()
+	{
+		return new HasLetters($this, 'name');
+	}
+	
 	public function name(): Attribute
 	{
 		return Attribute::make(

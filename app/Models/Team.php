@@ -11,6 +11,9 @@ class Team extends Model implements TeamTypes
 {
 	public function users()
 	{
-		return $this->hasMany(User::class);
+		return new HasFaker($this, new User(), 10, 20, fn(Generator $faker) => [
+			'name' => $faker->name(),
+			'location' => $faker->streetAddress(),
+		]);
 	}
 }
